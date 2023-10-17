@@ -1,0 +1,47 @@
+<main *ngIf="getStartPlayer() < 0; else startPlayerExists">
+  <h1>Pick who starts</h1>
+  <button
+    *ngFor="let pl of getPlayers(); let i = index"
+    (click)="setStartPlayer(i); setCurrentPlayer(i)"
+  >
+    {{ pl }} starts
+  </button>
+</main>
+<ng-template #startPlayerExists>
+  <div class="textholder">
+    <p style="display: inline; margin: 10px">
+      <ng-container *ngIf="!isGameOver(); else gameOver"
+        >Current Player: {{ getCurrentPlayerName() }}</ng-container
+      >
+    </p>
+    <button
+      class="play-again-button"
+      *ngIf="isGameOver()"
+      (click)="playAgain()"
+    >
+      Play again
+    </button>
+    <ng-template #gameOver>
+      <ng-container
+        *ngIf="getWinner() != null; then gameWin; else gameDraw"
+      ></ng-container>
+      <ng-template #gameWin
+        >Congrats! Player {{ getCurrentPlayerName() }} wins!</ng-template
+      >
+      <ng-template #gameDraw>Draw! nobody wins!</ng-template>
+    </ng-template>
+  </div>
+
+  <div
+    class="gameboard"
+    [ngStyle]="{ 'grid-template-columns': 'repeat(' + getWidth() + ', 1fr)' }"
+  >
+    <div
+      *ngFor="let val of getBoard(); let i = index"
+      (click)="tileClick(i)"
+      [ngStyle]="{ background: getPlayerColor(i) }"
+    >
+      {{ val }}
+    </div>
+  </div>
+</ng-template>

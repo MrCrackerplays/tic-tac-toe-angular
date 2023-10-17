@@ -1,0 +1,17 @@
+:host {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 0.5rem;
+}

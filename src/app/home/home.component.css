@@ -1,0 +1,36 @@
+:host {
+  width: 100%;
+}
+
+.textholder {
+  margin: 5px;
+}
+
+.play-again-button {
+  color: white;
+  background: #0e850f;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+.gameboard {
+  display: inline-grid;
+  background: gray;
+  width: min-content;
+  height: min-content;
+}
+
+.gameboard > div {
+  background: #ac1ea6;
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 5px;
+  margin: 1px;
+  display: inline-grid;
+  align-content: center;
+  overflow: hidden;
+  user-select: none;
+  overflow-wrap: anywhere;
+}

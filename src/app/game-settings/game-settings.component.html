@@ -1,0 +1,41 @@
+<h1>Board</h1>
+<label for="width">Board Width</label
+><input
+  id="width"
+  type="number"
+  [value]="getWidth()"
+  min="1"
+  [(ngModel)]="newWidth"
+/><br />
+<label for="height">Board height</label
+><input
+  id="height"
+  type="number"
+  [value]="getHeight()"
+  min="1"
+  [(ngModel)]="newHeight"
+/><br />
+<label for="winlen">Winning Length</label
+><input
+  id="winlen"
+  type="number"
+  [value]="getWinningLength()"
+  min="1"
+  [(ngModel)]="newWinLength"
+/><br />
+<button (click)="saveBoard()">Save</button
+><button (click)="resetDefaults()">Default Settings</button>
+<p style="margin: 0">These reset the ongoing game!</p>
+<hr />
+<h1>Players</h1>
+<input
+  id="player-name"
+  placeholder="Player Name"
+  type="text"
+  [(ngModel)]="playerName"
+/><button (click)="addPlayer(playerName)">Add Player</button
+><button (click)="removePlayer(playerName)">Remove Player</button>
+<div *ngFor="let pl of getPlayers(); let i = index" (click)="playerName = pl">
+  {{ pl }}
+</div>
+<hr />
